@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+                <a class="navbar-brand" href="#">Resibo mo. Entry ko.</a>
+              
+              
+
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="container">
+		<%= yield %>
+	</div>
+
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
+
+	<%= yield :javascript %>
+
+</body>
+</html>
