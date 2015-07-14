@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'daily_expenses#index'
+  root 'home#index'
 
   # Example of regular route:
   get 'expense_list' => 'daily_expenses#getDateExpense'

@@ -2,6 +2,7 @@
 require 'date'
 
 class DailyExpensesController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
 
 	def new
 	end
@@ -14,6 +15,7 @@ class DailyExpensesController < ApplicationController
 	def create
 		@dailyExpense = DailyExpense.new(items: params[:items],amount: params[:amount])
 		@dailyExpense.expenseDate = Date.strptime(params[:dateEntry],"%m/%d/%Y")
+		@dailyExpense.user = current_user
 
 		if @dailyExpense.save
 			render :json => { 
