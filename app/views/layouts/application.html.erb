@@ -28,7 +28,7 @@
             <!-- nav bar links -->
                 <div class="navbar-collapse collapse">
                  <ul class="nav navbar-nav">
-                  <li ><%= link_to "Register", new_user_registration_path %></li>
+                  <li ><% unless user_signed_in? %><%= link_to "Register", new_user_registration_path %> <% end %></li>
                   <li><a href="#">Contact Us</a></li>
                 </ul>
 

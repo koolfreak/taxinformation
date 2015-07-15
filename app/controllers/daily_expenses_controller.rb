@@ -33,7 +33,7 @@ class DailyExpensesController < ApplicationController
 	end
 
 	def destroy
-		@dailyExpense = DailyExpense.find(params[:id])
+		@dailyExpense = current_user.daily_expense.find(params[:id])
 		@dailyExpense.delete
 		render :json => { 
 		         :success => true
@@ -42,7 +42,7 @@ class DailyExpensesController < ApplicationController
 	
 	def getDateExpense
 		expenseDate = Date.strptime(params[:expenseDate],"%m/%d/%Y")
-		expenses =  DailyExpense.where(:expenseDate => expenseDate)  #params[:expenseDate]
+		expenses =  current_user.daily_expense.where(:expenseDate => expenseDate)  #params[:expenseDate]
 		arr = Array.new
 		for ex in expenses
 			arr << [ex.items, ex.amount, ex.id]
